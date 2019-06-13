@@ -29,8 +29,8 @@ describe "Elo" do
 
     game8 = bob.versus(jane, :result => 0)
 
-    bob.rating.should == 1080
-    jane.rating.should == 1412
+    bob.rating.should == 1083
+    jane.rating.should == 1417
     bob.should_not be_pro
     bob.should be_starter
     bob.games_played.should == 8
@@ -129,17 +129,20 @@ describe "Elo" do
 
     it "winning" do
       @a.wins_from(@b)
-      @a.rating.should == 2003
+      @a.rating.should == 2004
+      @b.rating.should == 1896
     end
 
     it "losing" do
       @a.loses_from(@b)
-      @a.rating.should == 1993
+      @a.rating.should == 1994
+      @b.rating.should == 1906
     end
 
     it "draw" do
       @a.plays_draw(@b)
-      @a.rating.should == 1998
+      @a.rating.should == 1999
+      @b.rating.should == 1901
     end
 
   end
